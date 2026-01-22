@@ -1,10 +1,13 @@
 services:
-  api_host: "localhost"
+  api_host: "141.20.184.181"
   api_base_path: "/nomad-oasis"
 
 oasis:
   is_oasis: true
   uses_central_user_management: true
+  require_authentication: true
+  allowed_users:
+    - siamak.nakhaie@physik.hu-berlin.de
 
 north:
   jupyterhub_crypt_key: "978bfb2e13a8448a253c629d8dd84ff89587f30e635b753153960930cad9d36d"
@@ -15,8 +18,8 @@ north:
 
 meta:
   deployment: "oasis"
-  deployment_url: "https://my-oasis.org/api"
-  maintainer_email: "me@my-oasis.org"
+  deployment_url: "http://141.20.184.181/api"
+  maintainer_email: "siamak.nakhaie@physik.hu-berlin.de"
 
 logstash:
   enabled: false

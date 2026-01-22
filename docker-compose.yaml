@@ -50,7 +50,7 @@ services:
       - MONGO_LOG_DIR=/dev/null
     volumes:
       - mongo:/data/db
-      - ./.volumes/mongo:/backup
+      - /nomad/.volumes/mongo:/backup
     command: mongod --logpath=/dev/null # --quiet
     healthcheck:
       test:
@@ -122,8 +122,8 @@ services:
       mongo:
         condition: service_healthy
     volumes:
-      # - ./configs/nomad.yaml:/app/nomad.yaml
-      - ./.volumes/fs:/app/.volumes/fs
+      - ./configs/nomad.yaml:/app/nomad.yaml
+      - /nomad/.volumes/fs:/app/.volumes/fs
     command: python -m nomad.cli admin run action-internal-worker
     healthcheck:
       # See https://keithtenzer.com/temporal/Deploying_Temporal_Worker_on_Kubernetes/#liveliness-and-readiness-probes
@@ -178,8 +178,8 @@ services:
   #     temporal:
   #       condition: service_healthy
   #   volumes:
-  #     # - ./configs/nomad.yaml:/app/nomad.yaml
-  #     - ./.volumes/fs:/app/.volumes/fs
+  #     - ./configs/nomad.yaml:/app/nomad.yaml
+  #     - /nomad/.volumes/fs:/app/.volumes/fs
   #   command: python -m nomad.cli admin run action-gpu-worker
 
   # # nomad cpu worker (actions)
@@ -213,8 +213,8 @@ services:
   #     temporal:
   #       condition: service_healthy
   #   volumes:
-  #     # - ./configs/nomad.yaml:/app/nomad.yaml
-  #     - ./.volumes/fs:/app/.volumes/fs
+  #     - ./configs/nomad.yaml:/app/nomad.yaml
+  #     - /nomad/.volumes/fs:/app/.volumes/fs
   #   command: python -m nomad.cli admin run action-cpu-worker
 
   # nomad app (api + proxy)
@@ -247,8 +247,8 @@ services:
       north:
         condition: service_started
     volumes:
-      # - ./configs/nomad.yaml:/app/nomad.yaml
-      - ./.volumes/fs:/app/.volumes/fs
+      - ./configs/nomad.yaml:/app/nomad.yaml
+      - /nomad/.volumes/fs:/app/.volumes/fs
     command: ./run.sh
     healthcheck:
       test:
@@ -282,8 +282,8 @@ services:
     env_file:
       - ./.env
     volumes:
-      # - ./configs/nomad.yaml:/app/nomad.yaml
-      - ./.volumes/fs:/app/.volumes/fs
+      - ./configs/nomad.yaml:/app/nomad.yaml
+      - /nomad/.volumes/fs:/app/.volumes/fs
       - /var/run/docker.sock:/var/run/docker.sock
     user: "1000:991"
     command: python -m nomad.cli admin run hub
@@ -318,8 +318,8 @@ services:
       mongo:
         condition: service_healthy
     volumes:
-      # - ./configs/nomad.yaml:/app/nomad.yaml
-      - ./.volumes/fs:/app/.volumes/fs
+      - ./configs/nomad.yaml:/app/nomad.yaml
+      - /nomad/.volumes/fs:/app/.volumes/fs
     command: python -m nomad.cli admin run logtransfer
     profiles: ["with_logtransfer"]
 
