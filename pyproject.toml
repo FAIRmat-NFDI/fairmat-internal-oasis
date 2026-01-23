@@ -30,7 +30,9 @@ dependencies = [
 repository = "https://github.com/fairmat-nfdi/fairmat-internal-oasis"
 
 [project.optional-dependencies]
-plugins = []
+plugins = [
+  "nomad-parser-plugins-electronic>=1.0"
+]
 jupyter = ["jupyter-events"]
 gpu-action = []
 cpu-action = []
