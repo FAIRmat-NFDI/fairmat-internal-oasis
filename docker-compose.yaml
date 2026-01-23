@@ -1,22 +1,22 @@
 services:
   # broker for celery
-  rabbitmq:
-    restart: unless-stopped
-    image: docker.io/rabbitmq:3.11.5-alpine
-    container_name: nomad_oasis_rabbitmq
-    environment:
-      - RABBITMQ_ERLANG_COOKIE=SWQOKODSQALRPCLNMEQG
-      - RABBITMQ_DEFAULT_USER=rabbitmq
-      - RABBITMQ_DEFAULT_PASS=rabbitmq
-      - RABBITMQ_DEFAULT_VHOST=/
-    volumes:
-      - rabbitmq:/var/lib/rabbitmq
-    healthcheck:
-      test: ["CMD", "rabbitmq-diagnostics", "--silent", "--quiet", "ping"]
-      interval: 10s
-      timeout: 10s
-      retries: 30
-      start_period: 10s
+  # rabbitmq:
+  #  restart: unless-stopped
+  #  image: docker.io/rabbitmq:3.11.5-alpine
+  #  container_name: nomad_oasis_rabbitmq
+  #  environment:
+  #    - RABBITMQ_ERLANG_COOKIE=SWQOKODSQALRPCLNMEQG
+  #    - RABBITMQ_DEFAULT_USER=rabbitmq
+  #    - RABBITMQ_DEFAULT_PASS=rabbitmq
+  #    - RABBITMQ_DEFAULT_VHOST=/
+  #  volumes:
+  #    - rabbitmq:/var/lib/rabbitmq
+  #  healthcheck:
+  #    test: ["CMD", "rabbitmq-diagnostics", "--silent", "--quiet", "ping"]
+  #    interval: 10s
+  #    timeout: 10s
+  #    retries: 30
+  #    start_period: 10s
 
   # the search engine
   elastic:
@@ -115,8 +115,8 @@ services:
     depends_on:
       temporal:
         condition: service_healthy
-      rabbitmq:
-        condition: service_healthy
+          #rabbitmq:
+          #condition: service_healthy
       elastic:
         condition: service_healthy
       mongo:
@@ -238,8 +238,8 @@ services:
     depends_on:
       temporal:
         condition: service_healthy
-      rabbitmq:
-        condition: service_healthy
+          #rabbitmq:
+          #  condition: service_healthy
       elastic:
         condition: service_healthy
       mongo:
@@ -372,3 +372,5 @@ volumes:
 networks:
   default:
     name: nomad_oasis_network
+    driver_opts:
+      com.docker.network.driver.mtu: 1396
