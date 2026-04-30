@@ -32,6 +32,7 @@ repository = "https://github.com/fairmat-nfdi/fairmat-internal-oasis"
 [project.optional-dependencies]
 plugins = [
   "nomad-parser-plugins-electronic>=1.0",
+  "FAIRmat-onboarding @ git+https://github.com/FAIRmat-NFDI/fairmat_onboarding.git@386e196d3cb81b420aa72a3113b74999fa694f4b",
   "FAIRmat-events-form @ git+https://github.com/FAIRmat-NFDI/fairmat-events-form.git@b2b68b631a15e512c2c1ca1069718e7d98e3ea67",
   "nomad-training-resources @ git+https://github.com/siamakn/nomad-training-resources.git@3e8a2e430e1094496864345c51d060f07d98388d",
 ]
