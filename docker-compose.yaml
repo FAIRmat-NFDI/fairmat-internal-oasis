@@ -110,6 +110,7 @@ services:
       NOMAD_MONGO_HOST: mongo
       NOMAD_LOGSTASH_HOST: logtransfer
       NOMAD_TEMPORAL_HOST: temporal
+      FAIRMAT_TEAM_FILE: /app/configs/fairmat_team.json
     env_file:
       - ./.env
     depends_on:
@@ -123,6 +124,7 @@ services:
         condition: service_healthy
     volumes:
       - ./configs/nomad.yaml:/app/nomad.yaml
+      - ./configs/fairmat_team.json:/app/configs/fairmat_team.json:ro
       - /nomad/.volumes/fs:/app/.volumes/fs
     command: python -m nomad.cli admin run action-internal-worker
     healthcheck:
@@ -233,6 +235,7 @@ services:
       NOMAD_LOGSTASH_HOST: logtransfer
       NOMAD_NORTH_HUB_HOST: north
       NOMAD_TEMPORAL_HOST: temporal
+      FAIRMAT_TEAM_FILE: /app/configs/fairmat_team.json
     env_file:
       - ./.env
     depends_on:
@@ -248,6 +251,7 @@ services:
         condition: service_started
     volumes:
       - ./configs/nomad.yaml:/app/nomad.yaml
+      - ./configs/fairmat_team.json:/app/configs/fairmat_team.json:ro
       - /nomad/.volumes/fs:/app/.volumes/fs
     command: ./run.sh
     healthcheck:
