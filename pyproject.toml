@@ -33,7 +33,7 @@ repository = "https://github.com/fairmat-nfdi/fairmat-internal-oasis"
 plugins = [
   "nomad-parser-plugins-electronic>=1.0",
   "FAIRmat-onboarding @ git+https://github.com/FAIRmat-NFDI/fairmat_onboarding.git@d6539e437b71b7f38b2edf78c4c961bdeaf3637a",
-  "FAIRmat-events-form @ git+https://github.com/FAIRmat-NFDI/fairmat-events-form.git@dfef5d0255f11a93b9c8a4b8e6ba032b3be93b3e",
+  "FAIRmat-events-form @ git+https://github.com/FAIRmat-NFDI/fairmat-events-form.git@66ff52ea5769815a26d3f4c336d894290866895f",
   "nomad-training-resources @ git+https://github.com/FAIRmat-NFDI/nomad-training-resources.git@b3faef96ccf3ef8933a83e64b36894b39bf649d2",
 ]
 jupyter = ["jupyter-events"]
