@@ -1310,7 +1310,7 @@ wheels = [
 [[package]]
 name = "fairmat-events-form"
 version = "0.1.0"
-source = { git = "https://github.com/FAIRmat-NFDI/fairmat-events-form.git?rev=dfef5d0255f11a93b9c8a4b8e6ba032b3be93b3e#dfef5d0255f11a93b9c8a4b8e6ba032b3be93b3e" }
+source = { git = "https://github.com/FAIRmat-NFDI/fairmat-events-form.git?rev=66ff52ea5769815a26d3f4c336d894290866895f#66ff52ea5769815a26d3f4c336d894290866895f" }
 dependencies = [
     { name = "nomad-lab" },
     { name = "python-magic-bin", marker = "sys_platform == 'win32'" },
@@ -3215,7 +3215,7 @@ plugins = [
 
 [package.metadata]
 requires-dist = [
-    { name = "fairmat-events-form", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/fairmat-events-form.git?rev=dfef5d0255f11a93b9c8a4b8e6ba032b3be93b3e" },
+    { name = "fairmat-events-form", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/fairmat-events-form.git?rev=66ff52ea5769815a26d3f4c336d894290866895f" },
     { name = "fairmat-onboarding", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/fairmat_onboarding.git?rev=d6539e437b71b7f38b2edf78c4c961bdeaf3637a" },
     { name = "jupyter-events", marker = "extra == 'jupyter'" },
     { name = "nomad-lab", extras = ["dev", "infrastructure", "parsing"], marker = "extra == 'dev'", specifier = ">=1.4.1rc1" },
