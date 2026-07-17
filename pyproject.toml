@@ -48,6 +48,9 @@ extra-index-url = [
   "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple",
 ]
 prerelease = "explicit"
+override-dependencies = [
+  "FAIRmat-onboarding @ git+https://github.com/FAIRmat-NFDI/fairmat_onboarding.git@d6539e437b71b7f38b2edf78c4c961bdeaf3637a",
+]
 
 [tool.setuptools.packages.find]
 exclude = ["gui*", "docs*", "config*"]
