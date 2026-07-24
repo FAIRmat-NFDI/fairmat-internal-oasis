@@ -35,7 +35,7 @@ plugins = [
   "FAIRmat-onboarding @ git+https://github.com/FAIRmat-NFDI/fairmat_onboarding.git@d6539e437b71b7f38b2edf78c4c961bdeaf3637a",
   "FAIRmat-events-form @ git+https://github.com/FAIRmat-NFDI/fairmat-events-form.git@66ff52ea5769815a26d3f4c336d894290866895f",
   "nomad-training-resources @ git+https://github.com/FAIRmat-NFDI/nomad-training-resources.git@b3faef96ccf3ef8933a83e64b36894b39bf649d2",
-  "fairmat-members @ git+https://github.com/ahm531/fairmat-members.git@df50bde3abe9224f9b1b323e2755c907c7bbbc97",
+  "fairmat-members @ git+https://github.com/ahm531/fairmat-members.git@955c93bd5281abb7d53a4830e9808bfbb4e70b99",
 ]
 jupyter = ["jupyter-events"]
 gpu-action = []
