@@ -139,6 +139,13 @@ COPY configs/nomad.yaml nomad.yaml
 COPY pyproject.toml uv.lock /opt/
 COPY --chown=nomad:${UID} --from=docs /app/built_docs /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/app/static/docs
 
+# FAIRmat Oasis branding: overwrite the stock NOMAD artwork in the packaged GUI.
+# run.sh starts the app with --with-gui, which regenerates /app/run/gui_configured
+# from this directory on every container start, so these reach what is served.
+# Source vector is configs/logo/fairmat-oasis.svg - regenerate with rsvg-convert.
+COPY --chown=nomad:${UID} configs/logo/nomad-oasis.png configs/logo/favicon.png configs/logo/favicon-hres.png configs/logo/favicon.ico \
+     /opt/venv/lib/python${PYTHON_VERSION}/site-packages/nomad/app/static/gui/
+
 RUN mkdir -p /app/.volumes/fs \
  && chown -R nomad:${UID} /app \
  && chown -R nomad:${UID} /opt/venv \
