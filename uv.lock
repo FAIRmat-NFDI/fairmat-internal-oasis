@@ -15,7 +15,7 @@ resolution-markers = [
 ]
 
 [manifest]
-overrides = [{ name = "fairmat-onboarding", git = "https://github.com/FAIRmat-NFDI/fairmat_onboarding.git?rev=d6539e437b71b7f38b2edf78c4c961bdeaf3637a" }]
+overrides = [{ name = "fairmat-onboarding", git = "https://github.com/FAIRmat-NFDI/fairmat_onboarding.git?rev=29e0118e0f5b4ed88b1d33e9b003510c50f2c915" }]
 
 [[package]]
 name = "aiobotocore"
@@ -1330,7 +1330,7 @@ wheels = [
 [[package]]
 name = "fairmat-events-form"
 version = "0.1.0"
-source = { git = "https://github.com/FAIRmat-NFDI/fairmat-events-form.git?rev=66ff52ea5769815a26d3f4c336d894290866895f#66ff52ea5769815a26d3f4c336d894290866895f" }
+source = { git = "https://github.com/FAIRmat-NFDI/fairmat-events-form.git?rev=b6debcf0c06fb48a6e56037cbb6933144eaa425a#b6debcf0c06fb48a6e56037cbb6933144eaa425a" }
 dependencies = [
     { name = "nomad-lab" },
     { name = "python-magic-bin", marker = "sys_platform == 'win32'" },
@@ -1340,7 +1340,7 @@ dependencies = [
 [[package]]
 name = "fairmat-members"
 version = "0.1.0"
-source = { git = "https://github.com/ahm531/fairmat-members.git?rev=955c93bd5281abb7d53a4830e9808bfbb4e70b99#955c93bd5281abb7d53a4830e9808bfbb4e70b99" }
+source = { git = "https://github.com/FAIRmat-NFDI/fairmat-members.git?rev=1a617d702aa859e0e5270fb0d27994678cd66ada#1a617d702aa859e0e5270fb0d27994678cd66ada" }
 dependencies = [
     { name = "fairmat-onboarding" },
     { name = "nomad-lab" },
@@ -1351,9 +1351,19 @@ dependencies = [
 [[package]]
 name = "fairmat-onboarding"
 version = "0.1.0"
-source = { git = "https://github.com/FAIRmat-NFDI/fairmat_onboarding.git?rev=d6539e437b71b7f38b2edf78c4c961bdeaf3637a#d6539e437b71b7f38b2edf78c4c961bdeaf3637a" }
+source = { git = "https://github.com/FAIRmat-NFDI/fairmat_onboarding.git?rev=29e0118e0f5b4ed88b1d33e9b003510c50f2c915#29e0118e0f5b4ed88b1d33e9b003510c50f2c915" }
 dependencies = [
     { name = "nomad-lab" },
+]
+
+[[package]]
+name = "fairmat-project-outputs"
+version = "0.1.0"
+source = { git = "https://github.com/ahm531/fairmat-project-outputs.git?rev=08f65d54243c409fc42062e9aed03fde42ea9fbc#08f65d54243c409fc42062e9aed03fde42ea9fbc" }
+dependencies = [
+    { name = "nomad-lab" },
+    { name = "openpyxl" },
+    { name = "pandas" },
 ]
 
 [[package]]
@@ -3331,20 +3341,22 @@ plugins = [
     { name = "fairmat-events-form" },
     { name = "fairmat-members" },
     { name = "fairmat-onboarding" },
+    { name = "fairmat-project-outputs" },
     { name = "nomad-parser-plugins-electronic" },
     { name = "nomad-training-resources" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "fairmat-events-form", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/fairmat-events-form.git?rev=66ff52ea5769815a26d3f4c336d894290866895f" },
-    { name = "fairmat-members", marker = "extra == 'plugins'", git = "https://github.com/ahm531/fairmat-members.git?rev=955c93bd5281abb7d53a4830e9808bfbb4e70b99" },
-    { name = "fairmat-onboarding", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/fairmat_onboarding.git?rev=d6539e437b71b7f38b2edf78c4c961bdeaf3637a" },
+    { name = "fairmat-events-form", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/fairmat-events-form.git?rev=b6debcf0c06fb48a6e56037cbb6933144eaa425a" },
+    { name = "fairmat-members", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/fairmat-members.git?rev=1a617d702aa859e0e5270fb0d27994678cd66ada" },
+    { name = "fairmat-onboarding", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/fairmat_onboarding.git?rev=29e0118e0f5b4ed88b1d33e9b003510c50f2c915" },
+    { name = "fairmat-project-outputs", marker = "extra == 'plugins'", git = "https://github.com/ahm531/fairmat-project-outputs.git?rev=08f65d54243c409fc42062e9aed03fde42ea9fbc" },
     { name = "jupyter-events", marker = "extra == 'jupyter'" },
     { name = "nomad-lab", extras = ["dev", "infrastructure", "parsing"], marker = "extra == 'dev'", specifier = "==1.4.3.post1" },
     { name = "nomad-lab", extras = ["infrastructure", "parsing"], specifier = "==1.4.3.post1" },
     { name = "nomad-parser-plugins-electronic", marker = "extra == 'plugins'", specifier = ">=1.0" },
-    { name = "nomad-training-resources", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/nomad-training-resources.git?rev=b3faef96ccf3ef8933a83e64b36894b39bf649d2" },
+    { name = "nomad-training-resources", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/nomad-training-resources.git?rev=edc75976eb2f75ed452c482a62a42c9637b45570" },
     { name = "setuptools" },
 ]
 provides-extras = ["plugins", "jupyter", "gpu-action", "cpu-action", "dev"]
@@ -3522,7 +3534,7 @@ wheels = [
 [[package]]
 name = "nomad-training-resources"
 version = "1.0"
-source = { git = "https://github.com/FAIRmat-NFDI/nomad-training-resources.git?rev=b3faef96ccf3ef8933a83e64b36894b39bf649d2#b3faef96ccf3ef8933a83e64b36894b39bf649d2" }
+source = { git = "https://github.com/FAIRmat-NFDI/nomad-training-resources.git?rev=edc75976eb2f75ed452c482a62a42c9637b45570#edc75976eb2f75ed452c482a62a42c9637b45570" }
 dependencies = [
     { name = "nomad-lab" },
 ]
