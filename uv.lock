@@ -3342,6 +3342,7 @@ plugins = [
     { name = "fairmat-members" },
     { name = "fairmat-onboarding" },
     { name = "fairmat-project-outputs" },
+    { name = "nomad-gui" },
     { name = "nomad-parser-plugins-electronic" },
     { name = "nomad-training-resources" },
 ]
@@ -3353,6 +3354,7 @@ requires-dist = [
     { name = "fairmat-onboarding", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/fairmat_onboarding.git?rev=29e0118e0f5b4ed88b1d33e9b003510c50f2c915" },
     { name = "fairmat-project-outputs", marker = "extra == 'plugins'", git = "https://github.com/ahm531/fairmat-project-outputs.git?rev=08f65d54243c409fc42062e9aed03fde42ea9fbc" },
     { name = "jupyter-events", marker = "extra == 'jupyter'" },
+    { name = "nomad-gui", marker = "extra == 'plugins'", specifier = "==2.0.0b2" },
     { name = "nomad-lab", extras = ["dev", "infrastructure", "parsing"], marker = "extra == 'dev'", specifier = "==1.4.3.post1" },
     { name = "nomad-lab", extras = ["infrastructure", "parsing"], specifier = "==1.4.3.post1" },
     { name = "nomad-parser-plugins-electronic", marker = "extra == 'plugins'", specifier = ">=1.0" },
@@ -3360,6 +3362,24 @@ requires-dist = [
     { name = "setuptools" },
 ]
 provides-extras = ["plugins", "jupyter", "gpu-action", "cpu-action", "dev"]
+
+[[package]]
+name = "nomad-gui"
+version = "2.0.0b2"
+source = { registry = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple" }
+dependencies = [
+    { name = "click" },
+    { name = "fastapi" },
+    { name = "filelock" },
+    { name = "httpx" },
+    { name = "nomad-lab", extra = ["infrastructure"] },
+    { name = "plotly" },
+    { name = "starlette" },
+]
+sdist = { url = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/files/b8b997a6f174dcdc2c32f717aa699f6ed9f15a2df8dd62d8a037c0ca04fe6409/nomad_gui-2.0.0b2.tar.gz", hash = "sha256:b8b997a6f174dcdc2c32f717aa699f6ed9f15a2df8dd62d8a037c0ca04fe6409" }
+wheels = [
+    { url = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/files/b65d13555b900b7cc69fa82fc1d92159c510456fdf2ef6e88addd8d19363ecff/nomad_gui-2.0.0b2-py3-none-any.whl", hash = "sha256:b65d13555b900b7cc69fa82fc1d92159c510456fdf2ef6e88addd8d19363ecff" },
+]
 
 [[package]]
 name = "nomad-lab"

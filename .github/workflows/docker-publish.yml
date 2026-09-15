@@ -28,6 +28,7 @@ env:
     soapnormalizer
     eelsdbparser
     atomisticparsers
+    nomad_gui
     nomad_aitoolkit
     pynxtools_igor
     electronicparsers
