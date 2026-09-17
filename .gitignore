@@ -160,3 +160,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 configs/fairmat_team.json
+
+# Claude Code
+.claude/
+configs/fairmat_team_archive_*.json
