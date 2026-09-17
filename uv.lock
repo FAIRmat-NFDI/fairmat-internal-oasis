@@ -3343,6 +3343,7 @@ plugins = [
     { name = "fairmat-onboarding" },
     { name = "fairmat-project-outputs" },
     { name = "nomad-gui" },
+    { name = "nomad-oasis-customizer-toolkit" },
     { name = "nomad-parser-plugins-electronic" },
     { name = "nomad-training-resources" },
 ]
@@ -3357,6 +3358,7 @@ requires-dist = [
     { name = "nomad-gui", marker = "extra == 'plugins'", specifier = "==2.0.0b2" },
     { name = "nomad-lab", extras = ["dev", "infrastructure", "parsing"], marker = "extra == 'dev'", specifier = "==1.4.3.post1" },
     { name = "nomad-lab", extras = ["infrastructure", "parsing"], specifier = "==1.4.3.post1" },
+    { name = "nomad-oasis-customizer-toolkit", marker = "extra == 'plugins'", git = "https://github.com/siamakn/nomad-oasis-customizer-toolkit.git?rev=7bd0f465f4f84e11ab0b9a8f2d588c4e62c619a8" },
     { name = "nomad-parser-plugins-electronic", marker = "extra == 'plugins'", specifier = ">=1.0" },
     { name = "nomad-training-resources", marker = "extra == 'plugins'", git = "https://github.com/FAIRmat-NFDI/nomad-training-resources.git?rev=edc75976eb2f75ed452c482a62a42c9637b45570" },
     { name = "setuptools" },
@@ -3484,6 +3486,14 @@ infrastructure = [
     { name = "uvicorn", extra = ["standard"] },
     { name = "validators" },
     { name = "zipstream-ng" },
+]
+
+[[package]]
+name = "nomad-oasis-customizer-toolkit"
+version = "0.1.0"
+source = { git = "https://github.com/siamakn/nomad-oasis-customizer-toolkit.git?rev=7bd0f465f4f84e11ab0b9a8f2d588c4e62c619a8#7bd0f465f4f84e11ab0b9a8f2d588c4e62c619a8" }
+dependencies = [
+    { name = "nomad-lab" },
 ]
 
 [[package]]
