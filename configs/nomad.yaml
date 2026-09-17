@@ -33,3 +33,15 @@ mongo:
 elastic:
   entries_index: nomad_oasis_entries_v1
   materials_index: nomad_oasis_materials_v1
+
+plugins:
+  entry_points:
+    options:
+      nomad_oasis_customizer_toolkit.schema_packages:schema_visibility:
+        # Only these schemas are offered when creating a new entry in the GUI.
+        allowed_schemas:
+          - TrainingResource
+          - Event Participation Request
+          - FAIRmat PI Onboarding
+          - FAIRmat Member
+          - FAIRmat Event
