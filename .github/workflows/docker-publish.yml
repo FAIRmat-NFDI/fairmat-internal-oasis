@@ -29,6 +29,7 @@ env:
     eelsdbparser
     atomisticparsers
     nomad_gui
+    fairmat_network_projects
     nomad_aitoolkit
     pynxtools_igor
     electronicparsers
