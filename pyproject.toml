@@ -37,9 +37,9 @@ plugins = [
   "fairmat-events-form @ git+https://github.com/FAIRmat-NFDI/fairmat-events-form.git@5ea43d4e7f74c0684cc6e5cc77ad861ae787ddd0",
   "nomad-training-resources @ git+https://github.com/FAIRmat-NFDI/nomad-training-resources.git@edc75976eb2f75ed452c482a62a42c9637b45570",
   "fairmat-members @ git+https://github.com/FAIRmat-NFDI/fairmat-members.git@59d94c377425f72bf8500505a495e32b068ba890",
-  "fairmat-project-outputs @ git+https://github.com/ahm531/fairmat-project-outputs.git@08f65d54243c409fc42062e9aed03fde42ea9fbc",
+  "fairmat-project-outputs @ git+https://github.com/ahm531/fairmat-project-outputs.git@38a5534333098476d409caa703e0b0da1c15c712",
   "nomad-oasis-customizer-toolkit @ git+https://github.com/siamakn/nomad-oasis-customizer-toolkit.git@7bd0f465f4f84e11ab0b9a8f2d588c4e62c619a8",
-  "fairmat-network-projects @ git+https://github.com/FAIRmat-NFDI/fairmat-network-projects.git@4c7279a0321a19133e27802dc640a417fd229b59#subdirectory=fairmat-network-projects",
+  "fairmat-network-projects @ git+https://github.com/FAIRmat-NFDI/fairmat-network-projects.git@7f0593a1f96e377fb02b552d12ac8d032c288985#subdirectory=fairmat-network-projects",
 ]
 jupyter = ["jupyter-events"]
 gpu-action = []
