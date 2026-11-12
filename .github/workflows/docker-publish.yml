@@ -124,16 +124,12 @@ jobs:
       matrix:
         service:
           - app
-          - jupyter
           # - cpu-action
           # - gpu-action
         include:
           - service: app
             target: final
             image_suffix: ""
-          - service: jupyter
-            target: jupyter
-            image_suffix: /jupyter
           # - service: gpu-action
           #   target: gpu_action_final
           #   image_suffix: /gpu-action
@@ -185,7 +181,6 @@ jobs:
 
     outputs:
       app_image: ${{ env.app_IMAGE }}
-      jupyter_image: ${{ env.jupyter_IMAGE }}
 
   # Job 4: Run example upload tests and entrypoint tests
   run_tests:
@@ -194,7 +189,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       APP_IMAGE: ${{ needs.build.outputs.app_image }}
-      JUPYTER_IMAGE: ${{ needs.build.outputs.jupyter_image }}
 
     steps:
       - uses: actions/checkout@v4
@@ -208,15 +202,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Start containers and check app/jupyter container health
+      - name: Start containers and check app container health
         working-directory: tests
         run: |
           if ! docker compose up -d --quiet-pull --wait; then
             echo "Containers failed health check."
             echo "Logs for app:"
             docker logs app
-            echo "Logs for jupyter:"
-            docker logs jupyter
             exit 1
           fi
 

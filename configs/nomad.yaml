@@ -10,11 +10,7 @@ oasis:
     - siamak.nakhaie@physik.hu-berlin.de
 
 north:
-  jupyterhub_crypt_key: "978bfb2e13a8448a253c629d8dd84ff89587f30e635b753153960930cad9d36d"
-  tools:
-    options:
-      jupyter:
-        image: ghcr.io/fairmat-nfdi/fairmat-internal-oasis/jupyter:main
+  enabled: false
 
 meta:
   deployment: "oasis"

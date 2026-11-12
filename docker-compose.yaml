@@ -235,7 +235,6 @@ services:
       NOMAD_ELASTIC_HOST: elastic
       NOMAD_MONGO_HOST: mongo
       NOMAD_LOGSTASH_HOST: logtransfer
-      NOMAD_NORTH_HUB_HOST: north
       NOMAD_TEMPORAL_HOST: temporal
       FAIRMAT_TEAM_FILE: /app/configs/fairmat_team.json
     env_file:
@@ -249,8 +248,6 @@ services:
         condition: service_healthy
       mongo:
         condition: service_healthy
-      north:
-        condition: service_started
     volumes:
       - ./configs/nomad.yaml:/app/nomad.yaml
       - ./configs/fairmat_team.json:/app/configs/fairmat_team.json:ro
@@ -263,43 +260,6 @@ services:
         - "--fail"
         - "--silent"
         - "http://localhost:8000/-/health"
-      interval: 10s
-      timeout: 10s
-      retries: 30
-      start_period: 10s
-
-  # nomad remote tools hub (JupyterHUB, e.g. for AI Toolkit)
-  north:
-    restart: unless-stopped
-    image: ghcr.io/fairmat-nfdi/fairmat-internal-oasis:main
-    platform: linux/amd64
-    container_name: nomad_oasis_north
-    environment:
-      NOMAD_SERVICE: nomad_oasis_north
-      NOMAD_NORTH_DOCKER_NETWORK: nomad_oasis_network
-      NOMAD_NORTH_HUB_CONNECT_IP: north
-      NOMAD_NORTH_HUB_IP: "0.0.0.0"
-      NOMAD_NORTH_HUB_HOST: north
-      NOMAD_SERVICES_API_HOST: app
-      NOMAD_FS_EXTERNAL_WORKING_DIRECTORY: "$PWD"
-      NOMAD_RABBITMQ_HOST: rabbitmq
-      NOMAD_ELASTIC_HOST: elastic
-      NOMAD_MONGO_HOST: mongo
-    env_file:
-      - ./.env
-    volumes:
-      - ./configs/nomad.yaml:/app/nomad.yaml
-      - /nomad/.volumes/fs:/app/.volumes/fs
-      - /var/run/docker.sock:/var/run/docker.sock
-    user: "1000:991"
-    command: python -m nomad.cli admin run hub
-    healthcheck:
-      test:
-        - "CMD"
-        - "curl"
-        - "--fail"
-        - "--silent"
-        - "http://localhost:8081/backend/north/hub/health"
       interval: 10s
       timeout: 10s
       retries: 30
@@ -350,21 +310,9 @@ services:
         condition: service_healthy
       worker:
         condition: service_started # TODO: service_healthy
-      north:
-        condition: service_healthy
     ports:
       - 80:80
       - 443:443
-
-  # jupyterlab image: (this is only used to pull the image, no service is run for this)
-  jupyterlab_image:
-    image: ghcr.io/fairmat-nfdi/fairmat-internal-oasis/jupyter:main
-    platform: linux/amd64
-    container_name: nomad_jupyter_image
-    pull_policy: always
-    entrypoint: ["true"]
-    deploy:
-      replicas: 0 # Ensures the service isn't started
 
 volumes:
   mongo:
