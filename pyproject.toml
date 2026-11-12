@@ -21,7 +21,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
 dependencies = [
-  "nomad-lab[parsing, infrastructure]==1.4.3.post1",
+  "nomad-lab[parsing, infrastructure]==2.0.1",
   "setuptools",
 ]
 
@@ -31,7 +31,7 @@ repository = "https://github.com/fairmat-nfdi/fairmat-internal-oasis"
 
 [project.optional-dependencies]
 plugins = [
-  "nomad-gui==2.0.0b3",
+  "nomad-gui==2.0.1",
   "nomad-parser-plugins-electronic>=1.0",
   "fairmat-onboarding @ git+https://github.com/FAIRmat-NFDI/fairmat_onboarding.git@29e0118e0f5b4ed88b1d33e9b003510c50f2c915",
   "fairmat-events-form @ git+https://github.com/FAIRmat-NFDI/fairmat-events-form.git@5ea43d4e7f74c0684cc6e5cc77ad861ae787ddd0",
@@ -45,7 +45,7 @@ jupyter = ["jupyter-events"]
 gpu-action = []
 cpu-action = []
 
-dev = ["nomad-lab[parsing, infrastructure, dev]==1.4.3.post1"]
+dev = ["nomad-lab[parsing, infrastructure, dev]==2.0.1"]
 
 [tool.uv]
 extra-index-url = [
