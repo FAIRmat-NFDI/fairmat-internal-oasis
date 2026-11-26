@@ -24,7 +24,9 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.28
     container_name: nomad_oasis_elastic
     environment:
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      # The last JVM option mitigates Java4Shell (CVE-2026-114938), as in
+      # nomad-distro-template PR #328. Elastic ships no patched 7.17 release.
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m -XX:-UseBASE64Intrinsics
       - discovery.type=single-node
     volumes:
       - elastic:/usr/share/elasticsearch/data
